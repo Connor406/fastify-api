@@ -24,10 +24,19 @@ const addItem = (req, reply) => {
 
 const deleteItem = (req, reply) => {
   const { id } = req.params;
+  try {
+    if (items.find((item) => item.id === id)) {
+      items = items.filter((item) => item.id !== id);
 
-  items = items.filter((item) => item.id !== id);
-
-  reply.send({ message: `Item ${id} has been deleted` });
+      reply.send({ message: `Item ${id} has been deleted` });
+    } else {
+      reply.send({ message: "sorry pal, no item found" });
+    }
+    return;
+  } catch (e) {
+    reply.send({ message: "error 😭 check console" });
+    console.log("ERROR!", e);
+  }
 };
 
 const updateItem = (req, reply) => {
@@ -38,7 +47,7 @@ const updateItem = (req, reply) => {
 
   item = items.find((item) => item.id === id);
 
-  reply.send(item);
+  reply.send({ item, message: "nice" });
 };
 
 module.exports = {

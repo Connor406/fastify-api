@@ -57,10 +57,7 @@ const deleteItemOpts = {
   schema: {
     response: {
       200: {
-        type: "object",
-        properties: {
-          message: { type: "string" },
-        },
+        message: { type: "string" },
       },
     },
   },
@@ -77,7 +74,13 @@ const updateItemOpts = {
       },
     },
     response: {
-      200: Item,
+      200: {
+        type: "object",
+        properties: {
+          item: Item,
+          message: { type: "string" },
+        },
+      },
     },
   },
   handler: updateItem,

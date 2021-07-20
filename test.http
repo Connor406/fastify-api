@@ -14,7 +14,7 @@ Content-Type: application/json
 
 
 ### DELETE ITEM
-DELETE http://localhost:5000/items/15615 HTTP/1.1
+DELETE http://localhost:5000/items/c1e528d8-5182-4834-8ac3-6ec804891138 HTTP/1.1
 
 ### UPDATE ITEM
 PUT http://localhost:5000/items/3 HTTP/1.1
